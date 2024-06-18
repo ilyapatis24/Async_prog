@@ -7,7 +7,7 @@
 
 typedef unsigned int ui;
 
-int func(int value) {
+int increment_vector(int value) {
 	return value + 1;
 }
 
@@ -33,12 +33,11 @@ void printVector(std::vector<int>& l) {
 		std::cout << elem << " ";
 	std::cout << std::endl;
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char** argv) {
 
 	std::vector<int> v{ 1,4,6,9,12,20 };
 	printVector(v);
-	int i = 0;
-	async_for_each(v.begin(), v.end(), [](int i) {std::cout << func(i) << " "; });
+	async_for_each(v.begin(), v.end(), [](int value) {std::cout << increment_vector(value) << " "; });
 
 }
 
